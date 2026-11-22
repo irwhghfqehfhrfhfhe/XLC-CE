@@ -1,0 +1,209 @@
+/* ============================================================
+ * PCL 风格版本页（下载游戏 → 版本列表 + 点开内联安装面板）
+ * 只负责「版本功能」这一块的观感，不改动启动器其它页面的既有样式。
+ * 所有颜色沿用 styles.css 的主题变量，浅色主题（body.light-bg）下同步覆盖。
+ * ============================================================ */
+
+/* ---------- 筛选栏（类型 tabs 下方那一行） ---------- */
+/* 防御：有的构建里 .page 是 flex 容器，筛选栏会被挤成一根竖条。
+   flex:0 0 100% + width:100% 双保险，无论父级是 block 还是 flex 都占满整行。 */
+#page-download.active{ display:block; }
+.pv-bar{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  width:100%; flex:0 0 100%; box-sizing:border-box;
+  margin:0 0 10px; padding:8px 12px;
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r-md);
+}
+.pv-bar > *{ flex:none; }              /* 子项一律不收缩，文字不会被压成竖排 */
+.pv-bar .pv-count{ color:var(--tx2); font-size:12.5px; white-space:nowrap; }
+.pv-bar .pv-count b{ color:var(--tx); }
+.pv-bar .sp{ flex:1 1 auto; }          /* 唯一的弹性件：把右侧控件顶到最右 */
+/* 分段开关：隐藏已安装 / 排序 —— PCL 的筛选按钮也是这种小方块 */
+.pv-seg{
+  display:flex; background:var(--bg1); border:1px solid var(--line);
+  border-radius:8px; overflow:hidden; flex:none;
+}
+.pv-seg button{
+  border:none; background:transparent; color:var(--tx2); cursor:pointer;
+  padding:5px 11px; font-size:12.5px; font-family:var(--font); transition:.15s;
+}
+.pv-seg button + button{ border-left:1px solid var(--line); }
+.pv-seg button:hover{ color:var(--tx); background:var(--line); }
+.pv-seg button.on{ background:var(--acc-soft1); color:var(--acc2); font-weight:600; }
+.pv-chk{
+  display:flex; align-items:center; gap:6px; color:var(--tx2);
+  font-size:12.5px; cursor:pointer; user-select:none; flex:none;
+}
+.pv-chk input{ accent-color:var(--acc); width:14px; height:14px; cursor:pointer; }
+.pv-chk:hover{ color:var(--tx); }
+
+/* ---------- 版本卡片（PCL 那种「一行一张卡」） ---------- */
+.pv-list{
+  display:flex; flex-direction:column; gap:8px;
+  width:100%; flex:0 0 100%; box-sizing:border-box;   /* 同 .pv-bar：防止被 flex 父级挤压 */
+  max-height:calc(100vh - 330px); overflow-y:auto; padding-right:4px;
+}
+/* 关键：flex 子项默认 shrink，卡片多时会被压扁成一条线 —— 列表里所有直接子项都不允许收缩 */
+.pv-list > *{ flex:none; }
+.pv-card{
+  position:relative; background:var(--card); border:1px solid var(--line);
+  border-radius:var(--r-md); overflow:hidden; transition:border-color .16s, background .16s, transform .16s;
+}
+.pv-card:hover{ border-color:var(--line2); background:var(--card2); }
+.pv-card.open{ border-color:var(--acc-border); background:var(--card2); }
+/* 左侧类型色条：PCL 的卡片也有这条「一眼看出类型」的竖条 */
+.pv-card::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--acc); opacity:.45;
+}
+.pv-card.t-snapshot::before{ background:var(--info); }
+.pv-card.t-old_beta::before, .pv-card.t-old_alpha::before{ background:var(--warn); }
+
+.pv-head{
+  display:flex; align-items:center; gap:12px; padding:11px 14px; cursor:pointer;
+}
+.pv-ico{
+  width:30px; height:30px; flex:none; border-radius:6px; image-rendering:pixelated;
+  background:var(--line); padding:3px;
+}
+.pv-mid{ flex:1 1 auto; min-width:0; }
+.pv-ver{
+  font-size:15px; font-weight:800; letter-spacing:.2px; color:var(--tx);
+  display:flex; align-items:center; gap:7px; flex-wrap:wrap;
+}
+.pv-ver .badge{
+  font-size:10px; font-weight:700; padding:2px 7px; border-radius:99px; letter-spacing:.4px;
+  background:var(--acc-soft1); color:var(--acc2);
+}
+.pv-ver .badge.pin-preview{ background:rgba(96,165,250,.16); color:var(--info); }
+.pv-ver .badge.residual{ background:rgba(245,158,11,.16); color:#f59e0b; }
+.pv-sub{
+  margin-top:3px; font-size:12px; color:var(--tx3);
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+}
+.pv-sub .dot{ width:3px; height:3px; border-radius:50%; background:var(--tx3); opacity:.6; }
+.pv-right{ margin-left:auto; display:flex; align-items:center; gap:9px; flex:none; }
+.pv-installed{
+  color:var(--acc2); font-size:12.5px; font-weight:600;
+  display:flex; align-items:center; gap:5px;
+}
+.pv-chev{ color:var(--tx3); transition:transform .2s; display:flex; }
+.pv-card.open .pv-chev{ transform:rotate(180deg); color:var(--acc2); }
+/* 「安装 / 再装一份」：轻量胶囊。原来是一个饱和的深绿实心块 + 深色字，
+   在白底上像贴了块膏药；现在统一走强调色的浅底 + 强调色文字，跟卡片其它元素同一套语言。 */
+.pv-btn{
+  border:1px solid transparent; cursor:pointer; border-radius:8px; padding:6px 14px;
+  font-family:var(--font); font-size:12.5px; font-weight:600; transition:.15s;
+  background:var(--acc-soft1); color:var(--acc2);
+  display:inline-flex; align-items:center; gap:6px; line-height:1.4; white-space:nowrap;
+}
+.pv-btn:hover{ background:var(--acc-a26); border-color:var(--acc-border); }
+.pv-btn:active{ transform:translateY(1px); }
+.pv-btn:disabled{ opacity:.45; cursor:not-allowed; filter:none; transform:none; }
+/* 主操作（开始安装）：实心，文字色自动取对比度更高的那个（自定义主题色也不会白字糊底） */
+.pv-btn.solid{
+  background:var(--acc-solid,var(--grad)); color:var(--on-acc,#fff);
+  padding:7px 18px; box-shadow:0 3px 10px var(--acc-a28);
+}
+.pv-btn.solid:hover{ filter:brightness(1.06); border-color:transparent; }
+.pv-btn.ghost{ background:var(--line); color:var(--tx2); }
+.pv-btn.ghost:hover{ background:var(--line2); color:var(--tx); border-color:transparent; }
+.pv-btn.danger{ background:rgba(248,113,113,.14); color:var(--danger); }
+.pv-btn.danger:hover{ background:rgba(248,113,113,.22); border-color:transparent; }
+
+/* ---------- 展开面板（PCL 的「选择要安装的内容」） ---------- */
+.pv-panel{
+  border-top:1px solid var(--line); padding:14px; background:var(--panel-sunk);
+  animation:pvIn .18s ease-out;
+}
+@keyframes pvIn{ from{ opacity:0; transform:translateY(-4px); } to{ opacity:1; transform:none; } }
+.pv-panel h4{
+  font-size:12.5px; color:var(--tx2); font-weight:600; margin-bottom:10px;
+  display:flex; align-items:center; gap:6px;
+}
+.pv-panel h4::before{ content:''; width:3px; height:11px; border-radius:2px; background:var(--acc2); }
+/* 加载器卡片：PCL 是横向一排大方块，每个方块 = 图标 + 名称 + 一句说明 */
+.pv-loaders{ display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:8px; }
+.pv-lo{
+  position:relative; display:flex; gap:9px; align-items:flex-start;
+  padding:10px 11px; border-radius:10px; cursor:pointer;
+  background:var(--bg1); border:1px solid var(--line); transition:.15s;
+}
+.pv-lo:hover{ border-color:var(--line2); background:var(--card2); }
+.pv-lo.sel{ border-color:var(--acc-border); background:var(--acc-soft2); }
+.pv-lo.bad{ opacity:.5; cursor:not-allowed; }
+.pv-lo input{ position:absolute; opacity:0; pointer-events:none; }
+.pv-lo .lo-ic{
+  width:22px; height:22px; flex:none; border-radius:5px; margin-top:1px;
+  background:var(--line); color:var(--tx2);
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px; font-weight:800; letter-spacing:.2px;
+}
+.pv-lo.sel .lo-ic{ background:var(--acc-soft1); color:var(--acc2); }
+.pv-lo .lo-b{ flex:1 1 auto; min-width:0; }
+.pv-lo .lo-n{ font-size:13px; font-weight:700; color:var(--tx); display:flex; align-items:center; gap:6px; }
+.pv-lo .lo-d{ font-size:11px; color:var(--tx3); margin-top:2px; line-height:1.35; }
+.pv-lo .lo-s{
+  font-size:10.5px; font-weight:700; padding:2px 6px; border-radius:99px; flex:none;
+  background:var(--line); color:var(--tx3);
+}
+.pv-lo .lo-s.ok{ background:var(--acc-soft1); color:var(--acc2); }
+.pv-lo .lo-s.bad{ background:rgba(248,113,113,.14); color:var(--danger); }
+
+.pv-opts{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:12px; }
+.pv-opts .field-line{ display:flex; align-items:center; gap:8px; margin:0; }
+.pv-opts .field-line > span{ color:var(--tx2); font-size:12.5px; }
+.pv-opts input[type=text]{
+  background:var(--bg1); border:1px solid var(--line); color:var(--tx);
+  border-radius:8px; padding:6px 10px; font-size:12.5px; font-family:var(--font); min-width:180px;
+}
+.pv-opts input[type=text]:focus{ outline:none; border-color:var(--acc-border); }
+.pv-panel .lver{ display:flex; gap:6px; align-items:center; }
+.pv-panel .lver-sel, .pv-panel .lver-flt{
+  background:var(--bg1); border:1px solid var(--line); color:var(--tx);
+  border-radius:8px; padding:6px 8px; font-size:12.5px; font-family:var(--font);
+}
+.pv-panel .lver-sel{ min-width:190px; }
+.pv-panel .lver-flt{ min-width:110px; }
+
+.pv-warn{
+  margin-top:10px; font-size:12px; padding:8px 11px; border-radius:8px;
+  background:rgba(251,191,36,.1); color:var(--warn); border:1px solid rgba(251,191,36,.2);
+}
+.pv-warn.err{ background:rgba(248,113,113,.1); color:var(--danger); border-color:rgba(248,113,113,.22); }
+.pv-warn.tip{ background:rgba(96,165,250,.1); color:var(--info); border-color:rgba(96,165,250,.2); }
+
+.pv-foot{ display:flex; align-items:center; gap:10px; margin-top:13px; }
+.pv-foot .sp{ flex:1 1 auto; }
+/* 进度区 */
+.pv-prog{ margin-top:12px; }
+.pv-prog .prog{ height:7px; background:var(--line); border-radius:99px; overflow:hidden; }
+.pv-prog .prog > i{
+  display:block; height:100%; width:0%; border-radius:99px; background:var(--grad);
+  transition:width .25s ease;
+}
+.pv-prog .ptext{ margin-top:6px; font-size:12px; color:var(--tx2); font-variant-numeric:tabular-nums; }
+
+/* 加载更多 */
+.pv-more{
+  margin-top:10px; text-align:center; color:var(--tx3); font-size:12.5px;
+  padding:9px; border:1px dashed var(--line); border-radius:10px; cursor:pointer; transition:.15s;
+}
+.pv-more:hover{ color:var(--tx); border-color:var(--line2); background:var(--card); }
+.pv-empty{ padding:26px; text-align:center; color:var(--tx3); font-size:13px; }
+
+/* ---------- 浅色主题 ---------- */
+body.light-bg .pv-bar,
+body.light-bg .pv-card{ background:#fff; border-color:rgba(0,0,0,.09); }
+body.light-bg .pv-card:hover{ background:#f7f9fc; }
+body.light-bg .pv-card.open{ background:#f7f9fc; }
+body.light-bg .pv-panel{ background:rgba(0,0,0,.03); border-top-color:rgba(0,0,0,.09); }
+body.light-bg .pv-lo{ background:#f4f6fa; border-color:rgba(0,0,0,.08); }
+body.light-bg .pv-lo:hover{ background:#eef1f7; }
+body.light-bg .pv-lo.sel{ background:var(--acc-a10); }
+body.light-bg .pv-opts input[type=text],
+body.light-bg .pv-panel .lver-sel,
+body.light-bg .pv-panel .lver-flt{ background:#fff; border-color:rgba(0,0,0,.12); color:#1f2430; }
+body.light-bg .pv-seg{ background:#f4f6fa; border-color:rgba(0,0,0,.09); }
+body.light-bg .pv-more{ border-color:rgba(0,0,0,.12); }
+body.light-bg .pv-more:hover{ background:#fff; }

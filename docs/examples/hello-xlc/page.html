@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<!-- 插件自己声明 CSP：只加载自己那份文件，不连外网（要用网络请走宿主 http.get 接口）。
+     安装时启动器还会再注入一条更严的 CSP，两条取交集 —— 自己写的这条别写松了。 -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:">
+<title>示例插件 · 页面</title>
+<link rel="stylesheet" href="page.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img class="logo" src="Images/Logo.png" alt="插件图标">
+      <div>
+        <h2>示例插件 · 页面</h2>
+        <p class="sub" id="who">正在向启动器要插件信息…</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <h3>你好，<span id="nick">玩家</span>！</h3>
+      <p class="sub">这是插件给启动器<b>添加的页面</b>：它在侧栏多出一项，点开就到这里 —— 不开新窗口，和「联机」「实例设置」一样是启动器自己的一页。</p>
+      <p class="sub">上面的称呼来自<b>设置页</b>存的偏好（storage 权限），两个 HTML 共用同一份插件数据。</p>
+    </section>
+
+    <section class="card">
+      <h3>试试桥接口</h3>
+      <div class="row">
+        <button id="btnNotify" class="btn">发一条通知</button>
+        <button id="btnVer" class="btn ghost">读启动器版本</button>
+      </div>
+      <p class="sub" id="out"></p>
+    </section>
+
+    <footer>
+      <p class="sub">本页面 = 插件包根目录的 <code>page.html</code>；图标 = <code>Images/Logo.png</code>；
+      清单里写 <code>pageTitle</code> 可以改侧栏显示的名字；不想要页面就把 page.html 从包里去掉。</p>
+    </footer>
+  </div>
+  <script src="page.js"></script>
+</body>
+</html>

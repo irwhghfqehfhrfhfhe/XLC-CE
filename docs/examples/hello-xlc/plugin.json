@@ -1,0 +1,11 @@
+{
+  "id": "hello-xlc",
+  "name": "示例插件",
+  "version": "1.3.0",
+  "author": "XLC 示例",
+  "description": "示例插件：设置页（panel.html）+ 侧栏页面（page.html）。设置页存几个偏好，页面显示问候并演示桥接口。照着改就能做自己的插件。",
+  "entry": "panel.html",
+  "pageTitle": "示例页面",
+  "permissions": ["notify", "storage", "launcher"],
+  "allowedHosts": []
+}

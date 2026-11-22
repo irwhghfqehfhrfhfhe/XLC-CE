@@ -1,0 +1,454 @@
+{
+ "generatedAt": "2026-10-04T11:16:26.266Z",
+ "count": 64,
+ "items": {
+  "mod menu": {
+   "mcmodId": "1675",
+   "query": "modmenu",
+   "zh": "模组菜单",
+   "en": "Mod Menu",
+   "abbr": ""
+  },
+  "minemenufabric": {
+   "mcmodId": "4088",
+   "query": "modmenu",
+   "zh": "我的菜单Fabric版",
+   "en": "MineMenuFabric",
+   "abbr": ""
+  },
+  "advanced loot info": {
+   "mcmodId": "20116",
+   "query": "emi",
+   "zh": "高级战利品信息显示",
+   "en": "Advanced Loot Info",
+   "abbr": "ALI"
+  },
+  "cobblemon jei integration": {
+   "mcmodId": "23322",
+   "query": "emi",
+   "zh": "方可梦战利品信息",
+   "en": "Cobblemon JEI Integration",
+   "abbr": "CJI"
+  },
+  "automation era": {
+   "mcmodId": "20416",
+   "query": "emi",
+   "zh": "自动化时代",
+   "en": "Automation Era",
+   "abbr": "AtE"
+  },
+  "cooking for blockheads": {
+   "mcmodId": "468",
+   "query": "cookingforblockheads",
+   "zh": "傻瓜烹饪/懒人厨房",
+   "en": "Cooking for Blockheads",
+   "abbr": ""
+  },
+  "iafdragonfix": {
+   "mcmodId": "27422",
+   "query": "ice-and-fire",
+   "zh": "冰火传说-龙巢修复",
+   "en": "IAFDragonFix",
+   "abbr": "IAFfix"
+  },
+  "inventory sorter": {
+   "mcmodId": "2026",
+   "query": "inventorysorter",
+   "zh": "物品分拣",
+   "en": "Inventory Sorter",
+   "abbr": ""
+  },
+  "inventory sort": {
+   "mcmodId": "20714",
+   "query": "inventorysorter",
+   "zh": "背包整理",
+   "en": "Inventory Sort",
+   "abbr": ""
+  },
+  "iron chests": {
+   "mcmodId": "20",
+   "query": "ironchests",
+   "zh": "更多箱子",
+   "en": "Iron Chests",
+   "abbr": ""
+  },
+  "curious elytra / elytra trinket / elytra slot": {
+   "mcmodId": "3923",
+   "query": "trinkets",
+   "zh": "鞘翅插槽 / 鞘翅槽位",
+   "en": "Curious Elytra / Elytra Trinket / Elytra Slot",
+   "abbr": ""
+  },
+  "curio of undying / trinket of undying / charm of undying": {
+   "mcmodId": "2236",
+   "query": "trinkets",
+   "zh": "不死图腾插槽/不死图腾槽位",
+   "en": "Curio of Undying / Trinket of Undying / Charm of Undying",
+   "abbr": ""
+  },
+  "shulker box slot": {
+   "mcmodId": "3958",
+   "query": "trinkets",
+   "zh": "潜影盒插槽/潜影盒槽位",
+   "en": "Shulker Box Slot",
+   "abbr": ""
+  },
+  "custom trinket slots": {
+   "mcmodId": "30844",
+   "query": "trinkets",
+   "zh": "自定义饰品栏",
+   "en": "Custom Trinket Slots",
+   "abbr": ""
+  },
+  "iron shulker boxes": {
+   "mcmodId": "1974",
+   "query": "ironshulkerbox",
+   "zh": "更多潜影盒",
+   "en": "Iron Shulker Boxes",
+   "abbr": ""
+  },
+  "industrial craft 2": {
+   "mcmodId": "2",
+   "query": "crafting",
+   "zh": "工业时代2",
+   "en": "Industrial Craft 2",
+   "abbr": "IC2"
+  },
+  "buildcraft": {
+   "mcmodId": "4",
+   "query": "crafting",
+   "zh": "建筑",
+   "en": "BuildCraft",
+   "abbr": "BC"
+  },
+  "create crafts & additions": {
+   "mcmodId": "3437",
+   "query": "crafting",
+   "zh": "机械动力：创想附加",
+   "en": "Create Crafts & Additions",
+   "abbr": "CC&A"
+  },
+  "kamen rider craft": {
+   "mcmodId": "1636",
+   "query": "crafting",
+   "zh": "假面骑士工艺",
+   "en": "Kamen Rider Craft",
+   "abbr": "KRC"
+  },
+  "academycraft": {
+   "mcmodId": "402",
+   "query": "crafting",
+   "zh": "超能力/学园都市",
+   "en": "AcademyCraft",
+   "abbr": "AC"
+  },
+  "railcraft": {
+   "mcmodId": "6",
+   "query": "crafting",
+   "zh": "铁路",
+   "en": "Railcraft",
+   "abbr": "RC"
+  },
+  "security craft": {
+   "mcmodId": "443",
+   "query": "crafting",
+   "zh": "安全工艺",
+   "en": "Security Craft",
+   "abbr": "SC"
+  },
+  "evilcraft": {
+   "mcmodId": "352",
+   "query": "crafting",
+   "zh": "邪恶工艺",
+   "en": "EvilCraft",
+   "abbr": "EC"
+  },
+  "decocraft": {
+   "mcmodId": "690",
+   "query": "crafting",
+   "zh": "装饰工艺",
+   "en": "Decocraft",
+   "abbr": ""
+  },
+  "primogems craft": {
+   "mcmodId": "10429",
+   "query": "crafting",
+   "zh": "原石工艺",
+   "en": "Primogems Craft",
+   "abbr": "PGC"
+  },
+  "butchercraft": {
+   "mcmodId": "9501",
+   "query": "crafting",
+   "zh": "屠宰工艺",
+   "en": "Butchercraft",
+   "abbr": ""
+  },
+  "guns, rockets and atomic explosions": {
+   "mcmodId": "4050",
+   "query": "crafting",
+   "zh": "枪，炮，原子弹！",
+   "en": "Guns, Rockets and Atomic Explosions",
+   "abbr": ""
+  },
+  "fastcraft": {
+   "mcmodId": "436",
+   "query": "crafting",
+   "zh": "快速工艺",
+   "en": "FastCraft",
+   "abbr": ""
+  },
+  "guns craft": {
+   "mcmodId": "13395",
+   "query": "crafting",
+   "zh": "枪械工艺",
+   "en": "Guns Craft",
+   "abbr": "GCS"
+  },
+  "computer craft": {
+   "mcmodId": "71",
+   "query": "crafting",
+   "zh": "电脑",
+   "en": "Computer Craft",
+   "abbr": "CC"
+  },
+  "ancient spellcraft": {
+   "mcmodId": "2390",
+   "query": "crafting",
+   "zh": "古代咒法",
+   "en": "Ancient Spellcraft",
+   "abbr": ""
+  },
+  "genshin craft": {
+   "mcmodId": "12041",
+   "query": "crafting",
+   "zh": "原的世界",
+   "en": "Genshin Craft",
+   "abbr": ""
+  },
+  "magneticraft": {
+   "mcmodId": "461",
+   "query": "crafting",
+   "zh": "磁场工艺",
+   "en": "MagnetiCraft",
+   "abbr": "MAGC"
+  },
+  "monster hunter frontier craft": {
+   "mcmodId": "297",
+   "query": "crafting",
+   "zh": "怪物猎人边境工艺",
+   "en": "Monster Hunter Frontier Craft",
+   "abbr": "MHFC"
+  },
+  "otaku craft": {
+   "mcmodId": "249",
+   "query": "crafting",
+   "zh": "御宅工艺",
+   "en": "Otaku Craft",
+   "abbr": "OtC"
+  },
+  "immersive craft": {
+   "mcmodId": "918",
+   "query": "crafting",
+   "zh": "沉浸工艺",
+   "en": "Immersive Craft",
+   "abbr": ""
+  },
+  "emerald craft mod": {
+   "mcmodId": "6322",
+   "query": "crafting",
+   "zh": "绿宝石工艺",
+   "en": "Emerald Craft Mod",
+   "abbr": "EC"
+  },
+  "drawerfps legacy": {
+   "mcmodId": "7966",
+   "query": "drawers",
+   "zh": "储物抽屉渲染配置：遗产",
+   "en": "DrawerFPS Legacy",
+   "abbr": ""
+  },
+  "auto-crafting drawer": {
+   "mcmodId": "28309",
+   "query": "drawers",
+   "zh": "自动合成抽屉",
+   "en": "Auto-Crafting Drawer",
+   "abbr": ""
+  },
+  "advent of ascension 3": {
+   "mcmodId": "1269",
+   "query": "boss",
+   "zh": "虚无世界3",
+   "en": "Advent of Ascension 3",
+   "abbr": "AoA3"
+  },
+  "l_ender 's cataclysm": {
+   "mcmodId": "5214",
+   "query": "boss",
+   "zh": "灾变",
+   "en": "L_Ender 's Cataclysm",
+   "abbr": ""
+  },
+  "nevermine 2: advent of ascension": {
+   "mcmodId": "401",
+   "query": "boss",
+   "zh": "虚无世界2",
+   "en": "Nevermine 2: Advent of Ascension",
+   "abbr": "AoA2"
+  },
+  "lycanites mobs": {
+   "mcmodId": "909",
+   "query": "boss",
+   "zh": "恐怖生物",
+   "en": "Lycanites Mobs",
+   "abbr": "LM"
+  },
+  "blue skies": {
+   "mcmodId": "1563",
+   "query": "boss",
+   "zh": "蔚蓝浩空",
+   "en": "Blue Skies",
+   "abbr": ""
+  },
+  "atomicstryker's infernal mobs": {
+   "mcmodId": "380",
+   "query": "boss",
+   "zh": "稀有精英怪",
+   "en": "AtomicStryker's Infernal Mobs",
+   "abbr": ""
+  },
+  "orespawn": {
+   "mcmodId": "524",
+   "query": "boss",
+   "zh": "矿石菌种",
+   "en": "OreSpawn",
+   "abbr": "OS"
+  },
+  "atum 2: return to the sands": {
+   "mcmodId": "117",
+   "query": "boss",
+   "zh": "阿图姆：沙漠之旅/亚图姆：金沙之旅",
+   "en": "Atum 2: Return to the Sands",
+   "abbr": "ATUM2"
+  },
+  "croparia": {
+   "mcmodId": "1006",
+   "query": "boss",
+   "zh": "矿石作物/魔种之咏",
+   "en": "Croparia",
+   "abbr": ""
+  },
+  "legendary monsters": {
+   "mcmodId": "12933",
+   "query": "boss",
+   "zh": "传奇怪物",
+   "en": "Legendary Monsters",
+   "abbr": "LM"
+  },
+  "stalwart dungeons": {
+   "mcmodId": "4647",
+   "query": "boss",
+   "zh": "坚固地牢",
+   "en": "Stalwart Dungeons",
+   "abbr": ""
+  },
+  "marium's soulslike weaponry": {
+   "mcmodId": "7850",
+   "query": "boss",
+   "zh": "Marium的魂类武器",
+   "en": "Marium's Soulslike Weaponry",
+   "abbr": "M'SW"
+  },
+  "chaos awakens": {
+   "mcmodId": "3816",
+   "query": "boss",
+   "zh": "混沌觉醒",
+   "en": "Chaos Awakens",
+   "abbr": "CA"
+  },
+  "meet your fight": {
+   "mcmodId": "4204",
+   "query": "boss",
+   "zh": "迎战",
+   "en": "Meet Your Fight",
+   "abbr": ""
+  },
+  "jerotes village - second round world": {
+   "mcmodId": "14086",
+   "query": "boss",
+   "zh": "Jerotes村庄-二轮世界",
+   "en": "Jerotes Village - Second Round World",
+   "abbr": "JV"
+  },
+  "eeeab's mobs": {
+   "mcmodId": "12608",
+   "query": "boss",
+   "zh": "EEEAB的生物",
+   "en": "EEEAB's Mobs",
+   "abbr": "EMobs"
+  },
+  "endorium": {
+   "mcmodId": "2240",
+   "query": "boss",
+   "zh": "末地：重生",
+   "en": "Endorium",
+   "abbr": "ER"
+  },
+  "mythical creatures": {
+   "mcmodId": "1152",
+   "query": "boss",
+   "zh": "神话生物",
+   "en": "Mythical Creatures",
+   "abbr": "MLP"
+  },
+  "dungeon now loading": {
+   "mcmodId": "4381",
+   "query": "boss",
+   "zh": "地牢进行时",
+   "en": "Dungeon Now Loading",
+   "abbr": "DNL"
+  },
+  "eternal tales": {
+   "mcmodId": "4604",
+   "query": "boss",
+   "zh": "永恒传说",
+   "en": "Eternal Tales",
+   "abbr": ""
+  },
+  "godzilla": {
+   "mcmodId": "720",
+   "query": "boss",
+   "zh": "哥斯拉",
+   "en": "Godzilla",
+   "abbr": ""
+  },
+  "arkworld": {
+   "mcmodId": "7288",
+   "query": "boss",
+   "zh": "方舟世界",
+   "en": "Arkworld",
+   "abbr": "AW"
+  },
+  "extra cells 2": {
+   "mcmodId": "174",
+   "query": "applied energistics",
+   "zh": "更多存储单元2",
+   "en": "Extra Cells 2",
+   "abbr": "EC2"
+  },
+  "neeve's ae2: extended life additions": {
+   "mcmodId": "11824",
+   "query": "applied energistics",
+   "zh": "Neeve的AE2:EL附加工具",
+   "en": "Neeve's AE2: Extended Life Additions",
+   "abbr": "NAE2"
+  },
+  "extraspells fork": {
+   "mcmodId": "29509",
+   "query": "electroblobs wizardry",
+   "zh": "额外咒语移植版",
+   "en": "ExtraSpells Fork",
+   "abbr": "ES"
+  }
+ }
+}

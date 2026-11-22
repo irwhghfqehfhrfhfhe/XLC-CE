@@ -1,0 +1,56 @@
+/* 示例插件的样式：用自己的主题变量即可，不必和启动器内部样式一致。
+   想要跟随深色 / 浅色，可以读 info() 里的 theme 字段，往 body 上挂 .light 类。 */
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 18px 20px 28px; font: 13px/1.7 "Microsoft YaHei UI", "Segoe UI", sans-serif;
+  color: #e8ecf1; background: #151922;
+}
+body.light { color: #1f2430; background: #f7f9fc; }
+h2 { margin: 0 0 4px; font-size: 17px; }
+h3 { margin: 0 0 10px; font-size: 13.5px; display: flex; align-items: center; gap: 8px; }
+.sub { margin: 0 0 14px; color: #8d97a5; font-size: 12px; }
+.card {
+  border: 1px solid rgba(255,255,255,.09); border-radius: 12px; padding: 14px 15px; margin-bottom: 12px;
+  background: rgba(255,255,255,.02);
+}
+body.light .card { border-color: rgba(0,0,0,.08); background: rgba(0,0,0,.015); }
+.tag {
+  font-size: 10.5px; font-weight: 600; padding: 1px 7px; border-radius: 99px;
+  color: #34d399; background: rgba(52,211,153,.12); border: 1px solid rgba(52,211,153,.3);
+}
+.tag.off { color: #f59e0b; background: rgba(245,158,11,.12); border-color: rgba(245,158,11,.32); }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-bottom: 12px; }
+.row { display: flex; gap: 8px; margin-bottom: 10px; }
+button {
+  padding: 7px 13px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12);
+  background: #1b202b; color: inherit; cursor: pointer; font-size: 12.5px;
+}
+body.light button { background: #fff; border-color: rgba(0,0,0,.12); }
+button:hover { border-color: rgba(52,211,153,.45); }
+button.primary { background: #10b981; border-color: #10b981; color: #04231a; font-weight: 600; }
+body.light button.primary { background: #10b981; border-color: #10b981; color: #fff; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field > span { color: #8d97a5; font-size: 12px; }
+.field input, .field select {
+  padding: 7px 10px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12);
+  background: #0f1218; color: inherit; font-size: 12.5px;
+}
+.field input[type="color"] { padding: 4px; height: 36px; cursor: pointer; }
+.field input[type="checkbox"] { width: 15px; height: 15px; accent-color: #10b981; }
+body.light .field input, body.light .field select { background: #fff; border-color: rgba(0,0,0,.12); }
+.field.check { flex-direction: row; align-items: center; gap: 8px; grid-column: 1 / -1; }
+.field.check input { width: 15px; height: 15px; accent-color: #10b981; }
+.hint { margin: 0; color: #7b8494; font-size: 11.5px; }
+.guard { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.guard li { display: flex; gap: 8px; font-size: 11.5px; color: #8d97a5; }
+.guard code {
+  flex: none; font-size: 11px; color: #7dd3fc; background: rgba(125,211,252,.1);
+  border-radius: 5px; padding: 0 5px; height: 18px; line-height: 18px;
+}
+body.light .guard code { color: #075985; background: rgba(7,89,133,.1); }
+pre {
+  margin: 0; padding: 10px 12px; border-radius: 10px; min-height: 54px;
+  background: rgba(255,255,255,.04); color: #8d97a5; font-size: 12px; white-space: pre-wrap;
+}
+body.light pre { background: rgba(0,0,0,.04); }

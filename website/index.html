@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XLC CE Launcher — 现代化 Minecraft 启动器</title>
+<meta name="description" content="XLC CE（Xero Lite Craft）启动器：两套界面（经典深色 + 照游戏重做的基岩版）、离线 / 微软账户登录、多线程下载、PCL 风格版本管理、Mod / 光影 / 地图 / 整合包一站安装、内置联机与好友、四个内置插件。免费开源，绿色便携。">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">
+      <img src="assets/icon.png" alt="XLC CE" class="brand-ic">
+      <span class="brand-t">XLC <b>CE</b> <i class="brand-ver" data-rel="version">v1.4.15</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#features">功能</a>
+      <a href="index.html#bedrock">基岩版界面</a>
+      <a href="index.html#plugins">插件</a>
+      <a href="index.html#shots">界面</a>
+      <a href="index.html#faq">常见问题</a>
+      <a href="download.html#changelog">更新日志</a>
+      <a href="download.html" class="nav-cta">下载</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-mask" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <div class="hero-tag"><img src="assets/grass.png" alt=""><span data-rel="version">1.4.15</span> · 开源 · 免费 · 绿色便携</div>
+      <h1>一个启动器<br><span class="grad-t">两套</span>界面</h1>
+      <p class="hero-sub">经典界面之外，还有一套<b>照游戏里做的基岩版界面</b>：全屏、方块按钮、3D 角色、照游戏布局的「游戏」页。<br>账户、下载、版本管理、Mod、联机、好友 —— 两边功能一模一样。</p>
+      <div class="hero-btns">
+        <a class="btn-big" href="download.html">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          免费下载 Windows 版
+        </a>
+        <a class="btn-ghost" href="#bedrock">看看基岩版界面 ↓</a>
+      </div>
+      <ul class="hero-meta">
+        <li><b data-rel="sizeonly">72 MB</b> 便携版 · 免安装</li>
+        <li><b>Windows 10/11</b> x64</li>
+        <li><b>MIT</b> 开源协议</li>
+      </ul>
+    </div>
+    <figure class="hero-shot">
+      <img src="assets/site-bd-menu.jpg" alt="XLC CE 基岩版界面主菜单" loading="eager">
+      <figcaption>基岩版界面 — 全屏主菜单，方块按钮，右下角常驻 3D 角色</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 功能 -->
+<section class="sec" id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>一个启动器，装下整个世界</h2>
+      <p>从账户到模组，从版本管理到联机与好友，该有的都有</p>
+    </div>
+    <div class="feat-grid">
+
+      <article class="feat">
+        <div class="feat-ic fi-user">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3>双账户体系</h3>
+        <p>离线账户即输即玩，微软正版账户完整 OAuth2 授权，令牌自动续期，还能导入外置登录（authlib-injector）。多个账户共存，随时切换。</p>
+      </article>
+
+      <article class="feat">
+        <div class="feat-ic fi-dl">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <h3>多线程高速下载</h3>
+        <p>客户端 / 依赖库 / 资源文件分段并行下载，内置 BMCLAPI 国内镜像与自动换源重试。单个连接卡住 15 秒自动掐断重试，不会永久卡在某个百分比。</p>
+      </article>
+
+      <article class="feat">
+        <div class="feat-ic fi-ver">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>PCL 风格版本管理</h3>
+        <p>正式版 / 快照 / 远古版本卡片式列表，点击即展开安装面板：Vanilla、Forge、Fabric、Quilt、NeoForge、OptiFine 实时探测兼容性。</p>
+      </article>
+
+      <article class="feat">
+        <div class="feat-ic fi-mod">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Mod / 光影 / 地图一站装</h3>
+        <p>对接 Modrinth 与 CurseForge 双源搜索，支持中文检索；Mod、光影、资源包、数据包、地图、整合包下载后自动归位到对应目录。</p>
+      </article>
+
+      <article class="feat">
+        <div class="feat-ic fi-mp">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>内置联机 · 内核自检</h3>
+        <p>无需公网 IP，创建房间即可与好友联机。联机页常显<b>内核版本行</b>：装的是哪版、上游有没有新版、端口上真正在跑的是哪版，附「检查更新」与「重装内核」。</p>
+      </article>
+
+      <article class="feat">
+        <div class="feat-ic fi-friends">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>好友功能</h3>
+        <p>好友列表、在线状态、一键加好友、邀请一起玩。对方同意后自动建房并把房间码发过去，进房前先核对他的模组，缺什么提示装什么。</p>
+      </article>
+
+      <article class="feat">
+        <div class="feat-ic fi-plug">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M9 3.5a2.5 2.5 0 0 1 5 0V6h3a1 1 0 0 1 1 1v3h.5a2.5 2.5 0 0 1 0 5H18v3a1 1 0 0 1-1 1h-3v-2.5a2.5 2.5 0 0 0-5 0V19H6a1 1 0 0 1-1-1v-3H3.5a2.5 2.5 0 0 1 0-5H5V7a1 1 0 0 1 1-1h3z"/></svg>
+        </div>
+        <h3>四个内置插件</h3>
+        <p><b>种子地图</b>（查种子看群系结构）、<b>一键开服</b>（Paper / Purpur / 原版 / Fabric）、<b>手柄控制</b>（不碰键鼠走完全流程）、<b>模组翻译器</b>（JAR 汉化）。装完就在，不用另外找。</p>
+      </article>
+
+      <article class="feat">
+        <div class="feat-ic fi-theme">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </div>
+        <h3>两套外观</h3>
+        <p>经典界面支持浅色 / 深色与自定义主题色；基岩版界面照游戏重做，全屏显示。左上角一个开关就能在两边来回切，功能完全一致。标题、按钮、存档卡这些控件的大小和位置也能自己调。</p>
+      </article>
+
+      <article class="feat">
+        <div class="feat-ic fi-rail">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M9 3.5v17"/></svg>
+        </div>
+        <h3>自定义侧边栏</h3>
+        <p>侧栏可放到窗口<b>左 / 上 / 右 / 下</b>四个方向；按钮顺序能拖着排，不常用的收起来，启动后进哪一页也能自己选。设置跟着配置一起导出导入。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 基岩版界面 -->
+<section class="sec sec-alt" id="bedrock">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>基岩版界面：照游戏里做的</h2>
+      <p>从 1.4.5 到 1.4.15 一路重做 —— 全屏铺满、方块按钮、照游戏布局的「游戏」页，现在连实例管理都搬进来了</p>
+    </div>
+
+    <div class="bd-grid">
+      <figure class="bd-big">
+        <img src="assets/site-bd-game.jpg" alt="基岩版「游戏」页：游戏 / 插件 / 实例三个页签，下面是最近玩的存档" loading="lazy">
+        <figcaption><b>「游戏」页</b><span>游戏 / 插件 / 实例三个通栏页签 · 左下切换版本 · 右下启动游戏 · 下面是最近玩的存档（名字底下那支小铅笔能就地改名）</span></figcaption>
+      </figure>
+      <div class="bd-copy">
+        <span class="pill pill-new">新 · 1.4.15</span>
+        <h3>顶上浅灰标题栏，下面就是游戏里那一套</h3>
+        <p>点「游戏」进去，最上面一条浅灰标题栏（返回 · 游戏 · 社交），下面三个通栏大页签 —— 材质照游戏里的石块按钮做：深灰平涂、浅灰描边，选中的只在下面压一条白线。右边绿色按钮直接启动当前版本，左边下拉换版本，换完立刻同步到实例选择。</p>
+        <ul class="bd-points">
+          <li><b>整屏全屏</b>：基岩版主题下窗口自动铺满，标题栏（关闭 / 最小化、左上角 logo）整条收起，跟游戏里一样；想退出点左上角「退出启动器」，会先问一遍</li>
+          <li><b>最近玩的存档</b>：一张卡一个世界（名字 / 所在实例 / 最后游玩），点一下切到它所在的实例；名字下面那支<b>小铅笔</b>点开就地改名，只改显示名，存档一个字节不碰</li>
+          <li><b>插件页签</b>：内置 4 个插件 + 你导入的社区插件，每张卡都有启用 / 停用开关，停用立刻生效</li>
+          <li><b>实例页签（新）</b>：挑实例、设为当前、启动、改名、开目录、删除、清残留全在这一页完成 —— 以前那颗「管理实例」一点就把你踢回经典界面，现在不会了</li>
+          <li><b>跟经典界面同一份数据</b>：账户、实例、存档、插件都是同一套，两边切来切去不会丢东西</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bd-mini-row">
+      <figure class="shot">
+        <img src="assets/site-bd-inst.jpg" alt="基岩版「游戏」页的实例页签" loading="lazy">
+        <figcaption><b>实例页签（1.4.15）</b><span>一行一个实例：设为当前 / 启动 / 改名 / 开目录 / 删除，残留目录也能就地清掉</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/site-bd-java.jpg" alt="基岩版下载页的 Java 页签" loading="lazy">
+        <figcaption><b>下载页 · Java（1.4.14）</b><span>看这台机器上已装的、缺哪个下一个、点一下就换成默认 —— 全程不出基岩版</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/site-bd-panel.jpg" alt="种子地图插件面板在基岩版弹层里展开" loading="lazy">
+        <figcaption><b>插件面板就地展开</b><span>不跳回经典界面：面板直接铺在弹层里，Esc 一级级往回退</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/site-bd-set.jpg" alt="基岩版设置页：左侧分组导航 + 右侧选项" loading="lazy">
+        <figcaption><b>设置页</b><span>左侧带图标的分组导航 + 右侧选项；外观里能调每个控件的大小与位置</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/site-bd-lan.jpg" alt="基岩版联机弹层" loading="lazy">
+        <figcaption><b>联机</b><span>满屏面板：建房 / 加入房间 / 模组核对，底部常显内核版本与「重装内核」</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/site-bd-acc.jpg" alt="切换账户弹层，右侧是 3D 角色" loading="lazy">
+        <figcaption><b>切换账户</b><span>左边账户列表、右边 3D 模型，点一行就换成那个账户的皮肤</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 插件 -->
+<section class="sec" id="plugins">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>四个内置插件，开箱就能用</h2>
+      <p>不用去别处找工具：装好启动器就已经在里面，开关一拨就能用</p>
+    </div>
+
+    <div class="plug-grid">
+      <article class="plug-card">
+        <div class="plug-ic" style="color:#10b981">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M9 3 3 9l6 6 6-6-6-6z"/><path d="M15 9l6-6M9 15l-6 6"/></svg>
+        </div>
+        <b>种子地图</b>
+        <span>输入任意种子，直接在启动器里查看该世界的生物群系、村庄、要塞与结构分布；也能从已有存档一键读出种子。</span>
+      </article>
+      <article class="plug-card">
+        <div class="plug-ic" style="color:#f59e0b">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><path d="M6 6.5h.01M6 17.5h.01"/></svg>
+        </div>
+        <b>一键开服</b>
+        <span>选 Paper / Purpur / 原版 / Fabric 与游戏版本，自动下载服务端、生成 eula 与 server.properties，一键启动并查看日志。</span>
+      </article>
+      <article class="plug-card">
+        <div class="plug-ic" style="color:#8b5cf6">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 11h4M8 9v4"/><circle cx="16.5" cy="10.5" r="1"/><circle cx="18.5" cy="13" r="1"/><path d="M2 15a10 10 0 0 1 10-10h.5a10 10 0 0 1 9.5 10v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></svg>
+        </div>
+        <b>手柄控制</b>
+        <span>十字键移焦点、A 确认、B 返回、LB / RB 切页、Start 启动游戏 —— 不碰键鼠也能走完整个流程。</span>
+      </article>
+      <article class="plug-card">
+        <div class="plug-ic" style="color:#0ea5e9">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <b>模组翻译器</b>
+        <span>上传一个模组 JAR，把里面的英文文本翻成中文并生成汉化资源包；不改原模组文件，翻过的文本会缓存。</span>
+      </article>
+    </div>
+
+    <figure class="plug-shot">
+      <img src="assets/site-bd-addon.jpg" alt="插件页签：内置插件卡片列表" loading="lazy">
+      <figcaption>插件页签（基岩版）— 一行一张卡，右上角开关，右边「打开」直接进面板；社区插件还能开目录、删除</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 界面展示 -->
+<section class="sec sec-alt" id="shots">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>界面一览</h2>
+      <p>经典深色 / 浅色，或整套基岩版外观 —— 点左上角就能换</p>
+    </div>
+
+    <div class="shot-grid">
+      <figure class="shot">
+        <img src="assets/site-dark-home.jpg" alt="经典深色界面主页" loading="lazy">
+        <figcaption><b>经典界面 · 主页</b><span>一眼看到当前版本、玩家名、启动日志与存档，右下角一个大按钮直接开</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/site-bd-dl.jpg" alt="基岩版下载页" loading="lazy">
+        <figcaption><b>下载页</b><span>正式版 / 快照 / 远古 / 全部，MOD、整合包、资源包、光影、数据包，再加一页独立的 Java</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap wrap-n">
+    <div class="sec-head">
+      <h2>常见问题</h2>
+      <p>装之前、用起来最容易卡住的几件事，先在这里说清楚</p>
+    </div>
+
+    <h3 class="faq-group">开始用</h3>
+    <details class="faq">
+      <summary>下载下来怎么开始？要装 .NET 或运行库吗？</summary>
+      <p>不用。便携版是<b>单文件 EXE</b>，双击就能跑，不装任何运行库、不写注册表。第一次启动会自动建游戏目录与配置文件；在「账户」页加一个离线账户，回主页点大按钮就能进游戏。<b>建议放在纯英文路径</b>（例如 <code>D:\Games\XLCCE</code>），中文路径偶尔会让个别 Java 版本读不到文件。</p>
+    </details>
+    <details class="faq">
+      <summary>需要自己装 Java 吗？</summary>
+      <p>启动器会自带你需要的运行时，也会扫描本机已装的 Java，按游戏版本自动匹配：≤1.16.5 用 8、1.17 用 16、1.18–1.20.4 用 17、1.20.5–1.21.11 用 21、26.1 起用 25。没有合适版本时，也可以在「设置 → 游戏」里手动指定 java.exe 路径；基岩版下载页里还有独立的 <b>Java</b> 一页，看已装的、缺哪个下一个，全在里面完成。</p>
+    </details>
+    <details class="faq">
+      <summary>支持正版（微软）账户和外置登录吗？</summary>
+      <p>都支持。微软账户走完整的 OAuth2 授权链路，登录后可正常进入正版服务器，令牌会自动续期不用反复登。外置登录（authlib-injector，各类皮肤站 / 私服）也能导入，填服务器地址即可。离线账户和正版账户可以同时存在，随时切换。</p>
+    </details>
+    <details class="faq">
+      <summary>能放在 U 盘里带走吗？多个版本会不会互相干扰？</summary>
+      <p>能，整个目录拷走就能用。默认开启<b>版本隔离</b>：每个实例有自己的 mods、config、存档目录，装不同整合包不会互相打架。想共用 mods 可以在设置里关掉隔离，改成全局目录。</p>
+    </details>
+
+    <h3 class="faq-group">用起来</h3>
+    <details class="faq">
+      <summary>基岩版界面怎么开？全屏了怎么退出、怎么改回经典界面？</summary>
+      <p>在「设置 → 实验性功能」里打开基岩版主题。开启后窗口会<b>自动全屏</b>，顶上那条标题栏（关闭 / 最小化 / 左上角 logo）整条收起 —— 想退出启动器，点左上角「普通模式」下面那颗<b>「退出启动器」</b>，会先弹确认框告诉你游戏还在不在跑；想回到经典深色界面，点左上角的<b>「普通模式」</b>开关即可，窗口会同时退出全屏。</p>
+    </details>
+    <details class="faq">
+      <summary>插件是什么？跟装 Mod 是一回事吗？</summary>
+      <p>不是。插件扩展的是<b>启动器本身</b>（种子地图、开服、手柄、翻译），Mod 是给游戏用的，两者分开装。四个内置插件装好启动器就在，开关一拨立即生效；社区插件是 <code>.zip</code> 包，从「插件」页导入，跑在独立面板里，权限（读文件 / 网络 / 通知）会先问你要一遍。基岩版界面里点「插件 → 打开」，面板就地铺开，不会把你甩回经典界面。</p>
+    </details>
+    <details class="faq">
+      <summary>联机时提示「404 / 未知的主机」，进不去别人的房间？</summary>
+      <p>九成是端口上跑着别的启动器留下的<b>旧内核</b>。打开「联机」，看底部那条内核版本行：如果「端口上在跑的」跟「当前版本」对不上，点<b>「重装内核」</b>，它会重下、覆盖再自动拉起。加入失败时提示里也会直接告诉你该做什么：404 去重装内核，400 是房间码格式或校验位不对。房间码少打 <code>U/</code>、少个连字符、用了全角符号都能自动纠正。</p>
+    </details>
+    <details class="faq">
+      <summary>装了 Mod / 光影后一启动就闪退？</summary>
+      <p>先去「诊断」页跑一遍<b>实例文件完整性</b>体检，缺的、被截断的 jar 会补上；再确认模组和游戏版本、加载器对得上（Fabric 模组不能丢进 Forge 实例）。如果是刚装完加载器就闪退，多半是 classpath 上重复的库打架，这类问题 1.2.1 起已经按官方规则合并处理。还不行就把「启动日志」最后几十行发出来 —— 报错原因通常写得很直白。</p>
+    </details>
+    <details class="faq">
+      <summary>下载卡住不动了？</summary>
+      <p>不会真的卡死：单个连接 15 秒没动静会自动掐断重试，并切换备用源（内置 BMCLAPI 国内镜像）。整轮资源下载失败也会自动补一轮。如果某个版本反复失败，去「设置 → 游戏」把下载源换成官方源或镜像源再试一次。</p>
+    </details>
+    <details class="faq">
+      <summary>存档、日志、配置都在哪？换机器怎么搬？</summary>
+      <p>默认都在启动器自己的目录下：<code>saves</code>（存档）、<code>logs</code>（日志）、<code>lmc.config.json</code>（配置）。换机器时把整个目录拷过去就行；也可以只拷这三个，「设置 → 关于」旁边的导入导出能把配置、侧栏顺序与插件开关一起带走。</p>
+    </details>
+
+    <details class="faq">
+      <summary>装完 Fabric / Forge，版本列表里为什么会多出一个纯原版？</summary>
+      <p>那是加载器实例<b>必须继承</b>的「原版基座」—— Fabric / Forge 生成的版本文件只写自己的加载器和启动类，游戏本体、原版库、资源索引都靠一句 <code>inheritsFrom</code> 指回那份纯原版去取，删了加载器实例就启动不了。它没有单独启动的意义，所以 <b>1.4.15 起默认从所有「选版本」的地方隐藏</b>（主页下拉、切换版本、游戏页、默认启动实例、资源与光影的目标版本都不列）。真要处理它，去「实例管理」页底部点开「已隐藏 N 个原版基座」，删的时候会提示连带影响并二次确认。</p>
+    </details>
+  </div>
+</section>
+
+<!-- 底部 CTA -->
+<section class="cta">
+  <div class="wrap cta-in">
+    <div>
+      <h2>准备好了吗？</h2>
+      <p>下载便携版，双击即用，几十秒后进入你的世界。</p>
+    </div>
+    <a class="btn-big" href="download.html">前往下载</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <img src="assets/icon.png" alt="">
+      <span>XLC CE Launcher</span>
+    </div>
+    <p>Xero Lite Craft · 基于 MIT 协议开源 · 与 Mojang / Microsoft 无隶属关系</p>
+    <p class="foot-dim">Minecraft 是 Mojang Synergies AB 的商标</p>
+  </div>
+</footer>
+
+<!-- 图片放大层 -->
+<div class="lb" id="lb" aria-hidden="true"><span class="lb-x">×</span><img alt=""></div>
+
+<script>
+/* 读取版本清单（同步注入，保证 site.js 里能直接拿到） */
+(function(){ var x=new XMLHttpRequest(); x.open('GET','release.json',false); try{ x.send(null); if(x.status===200){ try{ window.XLC_RELEASE=JSON.parse(x.responseText); }catch(e){} } }catch(e){} })();
+</script>
+<script src="js/site.js"></script>
+</body>
+</html>

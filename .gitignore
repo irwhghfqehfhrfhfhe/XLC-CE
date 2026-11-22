@@ -1,0 +1,35 @@
+# 依赖与构建产物
+node_modules/
+dist/
+*.exe
+*.zip
+
+# 运行时数据 / 用户配置 / 缓存（不要入库）
+logs/
+diagnostics/
+.minecraft/
+qa-out/
+qa-out.txt
+ui-out.txt
+qa/tmpgame-*/
+.tmp-pano/
+java-cache.json
+translator-cache.json
+detail-trans.json
+mod-names.json
+lmc.config.json
+lmc.config.json.bak-*
+*.bak
+*.bak-*
+
+# 编辑器与系统
+.DS_Store
+Thumbs.db
+*.lnk
+
+# 官网下载产物（源码保留，安装包走发布页）
+website/downloads/
+
+# 本地测试临时文件
+*.log
+.tmp/

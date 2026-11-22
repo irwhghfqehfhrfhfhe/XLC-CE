@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<!-- 插件自己声明 CSP：只加载自己那份文件，不连外网（要用网络请走宿主 http.get 接口） -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'">
+<title>示例插件 · 设置</title>
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h2>示例插件 · 设置</h2>
+      <p class="sub" id="who">正在向启动器要插件信息…</p>
+      <p class="sub" id="hostVer"></p>
+    </header>
+
+    <section class="card">
+      <h3>这个插件自己的设置 <span class="tag" id="scope">存在插件目录里</span></h3>
+      <div class="grid">
+        <label class="field">
+          <span>你的称呼</span>
+          <input id="stNick" type="text" maxlength="16" placeholder="玩家">
+        </label>
+        <label class="field">
+          <span>面板主题</span>
+          <select id="stTheme">
+            <option value="auto">跟随启动器</option>
+            <option value="dark">深色</option>
+            <option value="light">浅色</option>
+          </select>
+        </label>
+        <label class="field check">
+          <input id="stToast" type="checkbox">
+          <span>保存后在启动器里弹一条提示</span>
+        </label>
+        <label class="field check">
+          <input id="stShowVer" type="checkbox">
+          <span>在顶部显示启动器版本</span>
+        </label>
+      </div>
+      <div class="row">
+        <button id="btnSaveSt" class="primary">保存设置</button>
+        <button id="btnResetSt">恢复默认</button>
+        <button id="btnPing">试一下提示</button>
+      </div>
+      <p class="hint">这几项是<b>这个插件自己的</b>偏好：存在插件目录里，跟启动器设置页互不影响；卸载插件时会一起删掉。</p>
+    </section>
+
+    <section class="card">
+      <h3>这些设置存在哪</h3>
+      <ul class="guard">
+        <li><code>storage.set</code><span>写进插件自己的 <code>.xlc-data.json</code>，宿主按插件 id 隔离，别的插件读不到。</span></li>
+        <li><code>64 KB 上限</code><span>存偏好、缓存几个值够了；别拿它当数据库塞图片。</span></li>
+        <li><code>不申请 control</code><span>这份模板只申请 notify / storage / launcher —— 插件自己的设置，不需要碰启动器设置。</span></li>
+      </ul>
+    </section>
+
+    <pre id="out">这里会显示每次调用的结果。</pre>
+  </div>
+  <script src="panel.js"></script>
+</body>
+</html>
