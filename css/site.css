@@ -374,3 +374,25 @@ b{ color:var(--tx); }
   .hero-btns{ flex-direction:column; align-items:stretch; }
   .hero-btns a{ justify-content:center; }
 }
+
+/* ---------- 旧版官网跳转确认弹窗 ---------- */
+.oldsite-mask{
+  position:fixed; inset:0; z-index:120; display:none;
+  align-items:center; justify-content:center; padding:24px;
+  background:rgba(0,0,0,.78); backdrop-filter:blur(3px);
+}
+.oldsite-mask.on{ display:flex; }
+.oldsite-box{
+  position:relative; width:min(430px,100%); padding:28px 30px;
+  background:var(--panel2); border:1px solid var(--line); border-radius:6px;
+  box-shadow:0 24px 80px rgba(0,0,0,.6);
+}
+.oldsite-box h3{ margin:0 0 10px; font-size:21px; }
+.oldsite-box p{ margin:0 0 18px; color:var(--tx2); font-size:14px; }
+.oldsite-x{
+  position:absolute; top:10px; right:14px; cursor:pointer;
+  font-size:24px; line-height:1; color:var(--tx2);
+}
+.oldsite-x:hover{ color:#fff; }
+.oldsite-acts{ display:flex; gap:10px; flex-wrap:wrap; }
+.oldsite-acts .btn{ flex:1; min-width:150px; }
