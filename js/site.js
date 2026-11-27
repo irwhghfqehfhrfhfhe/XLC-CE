@@ -124,38 +124,31 @@
   }
 })();
 
-/* 旧版官网入口：打开页面自动弹一次 + 手动入口随时可点 */
+/* 旧版网站提示：每次打开页面都立刻弹出，不做「本次不再提示」 */
 (function () {
   'use strict';
   var URL_OLD = 'https://xlc-ce-launcher.app.workbuddy.host/?sharecode=FTJRRJTHES';
-  var KEY = 'xlc_old_site_prompted';
   var mask = null;
-
-  function remember() {
-    try { sessionStorage.setItem(KEY, '1'); } catch (_) {}
-  }
 
   function build() {
     mask = document.createElement('div');
     mask.className = 'oldsite-mask';
     mask.setAttribute('aria-hidden', 'true');
     mask.innerHTML =
-      '<div class="oldsite-box" role="dialog" aria-modal="true" aria-label="前往旧版官网">' +
+      '<div class="oldsite-box" role="dialog" aria-modal="true" aria-label="检测到您在中国大陆">' +
         '<span class="oldsite-x" data-old-close title="关闭">×</span>' +
-        '<h3>前往旧版官网？</h3>' +
-        '<p>本站已迁到 GitHub Pages，旧官网还在 WorkBuddy 上，内容与本站一致。要过去看看吗？</p>' +
+        '<h3>检测到您在中国大陆</h3>' +
+        '<p>检测到您在中国大陆，在中国大陆访问 GitHub 网站可能会不稳定，建议您切换到旧版网站</p>' +
         '<div class="oldsite-acts">' +
-          '<a class="btn primary" href="' + URL_OLD + '" target="_blank" rel="noopener">前往旧版官网</a>' +
+          '<a class="btn primary" href="' + URL_OLD + '" target="_blank" rel="noopener">前往旧版网站</a>' +
           '<button type="button" class="btn ghost" data-old-close>留在本站</button>' +
         '</div>' +
-        '<p class="oldsite-tip">选「留在本站」后，本次浏览不再提示</p>' +
+        '<p class="oldsite-tip">旧版网站与本页内容一致</p>' +
       '</div>';
     document.body.appendChild(mask);
     mask.addEventListener('click', function (e) {
       if (e.target === mask || e.target.closest('[data-old-close]')) close();
     });
-    var go = mask.querySelector('a[href]');
-    if (go) go.addEventListener('click', remember);
   }
 
   function show() {
@@ -170,7 +163,6 @@
     mask.classList.remove('on');
     mask.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    remember();
   }
 
   document.addEventListener('click', function (e) {
@@ -181,11 +173,6 @@
   });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-  function auto() {
-    var seen = false;
-    try { seen = sessionStorage.getItem(KEY) === '1'; } catch (_) {}
-    if (!seen) show();
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', auto);
-  else auto();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', show);
+  else show();
 })();
