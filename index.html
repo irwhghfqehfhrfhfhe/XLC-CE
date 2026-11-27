@@ -7,7 +7,7 @@
 <meta name="description" content="XLC CE（Xero Lite Craft）启动器：两套界面（经典深色 + 照游戏重做的基岩版）、离线 / 微软账户登录、多线程下载、PCL 风格版本管理、Mod / 光影 / 地图 / 整合包一站安装、内置联机与好友、四个内置插件。免费开源，绿色便携。">
 <meta name="msvalidate.01" content="70F6799AE50CDAF08BD2B6A6EF90B618" />
 <link rel="icon" type="image/png" href="assets/icon.png">
-<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/site.css?v=3">
 </head>
 <body>
 
@@ -357,6 +357,6 @@
 /* 读取版本清单（同步注入，保证 site.js 里能直接拿到） */
 (function(){ var x=new XMLHttpRequest(); x.open('GET','release.json',false); try{ x.send(null); if(x.status===200){ try{ window.XLC_RELEASE=JSON.parse(x.responseText); }catch(e){} } }catch(e){} })();
 </script>
-<script src="js/site.js"></script>
+<script src="js/site.js?v=3"></script>
 </body>
 </html>
