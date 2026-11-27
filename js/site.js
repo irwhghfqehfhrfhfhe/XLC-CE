@@ -124,11 +124,16 @@
   }
 })();
 
-/* 旧版官网入口：点击后先弹确认框，再跳转 */
+/* 旧版官网入口：打开页面自动弹一次 + 手动入口随时可点 */
 (function () {
   'use strict';
   var URL_OLD = 'https://xlc-ce-launcher.app.workbuddy.host/?sharecode=FTJRRJTHES';
+  var KEY = 'xlc_old_site_prompted';
   var mask = null;
+
+  function remember() {
+    try { sessionStorage.setItem(KEY, '1'); } catch (_) {}
+  }
 
   function build() {
     mask = document.createElement('div');
@@ -138,31 +143,49 @@
       '<div class="oldsite-box" role="dialog" aria-modal="true" aria-label="前往旧版官网">' +
         '<span class="oldsite-x" data-old-close title="关闭">×</span>' +
         '<h3>前往旧版官网？</h3>' +
-        '<p>旧版官网托管在 WorkBuddy 上，内容与本站一致。点「前往」会在新标签页打开；也可以留在本站继续浏览。</p>' +
+        '<p>本站已迁到 GitHub Pages，旧官网还在 WorkBuddy 上，内容与本站一致。要过去看看吗？</p>' +
         '<div class="oldsite-acts">' +
           '<a class="btn primary" href="' + URL_OLD + '" target="_blank" rel="noopener">前往旧版官网</a>' +
           '<button type="button" class="btn ghost" data-old-close>留在本站</button>' +
         '</div>' +
+        '<p class="oldsite-tip">选「留在本站」后，本次浏览不再提示</p>' +
       '</div>';
     document.body.appendChild(mask);
     mask.addEventListener('click', function (e) {
       if (e.target === mask || e.target.closest('[data-old-close]')) close();
     });
+    var go = mask.querySelector('a[href]');
+    if (go) go.addEventListener('click', remember);
+  }
+
+  function show() {
+    if (!mask) build();
+    mask.classList.add('on');
+    mask.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
 
   function close() {
     if (!mask) return;
     mask.classList.remove('on');
     mask.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    remember();
   }
 
   document.addEventListener('click', function (e) {
     var a = e.target.closest('[data-old-site]');
     if (!a) return;
     e.preventDefault();
-    if (!mask) build();
-    mask.classList.add('on');
-    mask.setAttribute('aria-hidden', 'false');
+    show();
   });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+
+  function auto() {
+    var seen = false;
+    try { seen = sessionStorage.getItem(KEY) === '1'; } catch (_) {}
+    if (!seen) show();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', auto);
+  else auto();
 })();
